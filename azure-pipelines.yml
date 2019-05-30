@@ -22,16 +22,14 @@ steps:
   displayName: 'Show environment variables'
 - script: |
     set DEPOT_TOOLS_WIN_TOOLCHAIN=0
-    gclient config --unmanaged https://pdfium.googlesource.com/pdfium.git
-    gclient sync
+    gclient.bat config --unmanaged https://pdfium.googlesource.com/pdfium.git
+    gclient.bat sync
   displayName: 'Initialize gclient'
-  failOnStderr: true
 - script: |
     cd pdfium
     echo CD=%CD%
     download_from_google_storage.bat -b chromium-browser-clang/rc -d build/toolchain/win/rc/win
   displayName: 'Download PDFium'
-  failOnStderr: true
 - script: |
     dir
   displayName: 'Show pdfium contents'
