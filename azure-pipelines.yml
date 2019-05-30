@@ -26,8 +26,15 @@ steps:
     gclient.bat sync
   displayName: 'Initialize gclient'
 - script: |
+    echo before dir
+    dir
+    echo after dir
     cd pdfium
-    echo CD=%CD%
+    echo "set:"
+    set
+    echo "where download_from_google_storage.bat"
+    where download_from_google_storage.bat
+    echo "download_from_google_storage.bat"
     download_from_google_storage.bat -b chromium-browser-clang/rc -d build/toolchain/win/rc/win
   displayName: 'Download PDFium'
 - script: |
