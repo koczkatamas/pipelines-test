@@ -22,4 +22,4 @@ steps:
     export DEPOT_TOOLS_WIN_TOOLCHAIN=0
     gclient config --unmanaged https://pdfium.googlesource.com/pdfium.git
     gclient sync
-  displayName 'Download PDFium'
+  displayName: 'Download PDFium'
