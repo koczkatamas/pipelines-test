@@ -16,5 +16,5 @@ steps:
 - script: |
     dir
     where python
-    python2 -c "print hello"
+    python2 -c "print 'running from python!'"
   displayName: 'Run a multi-line script'
