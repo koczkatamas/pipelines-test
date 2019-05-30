@@ -10,9 +10,9 @@ pool:
   vmImage: 'vs2017-win2016'
 
 steps:
-- displayName: 'Download depot_tools'
-  script: |
+- script: |
     curl --remote-name https://storage.googleapis.com/chrome-infra/depot_tools.zip
     unzip -d depot_tools -o depot_tools.zip
     cd depot_tools
     git checkout .
+  displayName: 'Download depot_tools'
