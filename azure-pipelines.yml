@@ -16,11 +16,11 @@ steps:
     rem cd depot_tools
     rem git checkout .
     rem cd ..
-    set PATH=%PATH%;%CD%\depot_tools
+    ECHO ##vso[task.prependpath]%AGENT_BUILDDIRECTORY%\depot_tools
   displayName: 'Download depot_tools'
 - script: |
     echo %PATH%
-    displayName: 'Show path'
+  displayName: 'Show path'
 - script: |
     export DEPOT_TOOLS_WIN_TOOLCHAIN=0
     gclient config --unmanaged https://pdfium.googlesource.com/pdfium.git
