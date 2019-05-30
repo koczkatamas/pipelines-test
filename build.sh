@@ -1,7 +1,10 @@
 set -x
 
-echo "Downloading depot_tools"
+echo "Configure environment"
 export PATH=/c/hostedtoolcache/windows/Python/2.7.16/x86:$PATH:$(pwd)/depot_tools
+python -m pip install pywin32
+
+echo "Downloading depot_tools"
 curl --remote-name https://storage.googleapis.com/chrome-infra/depot_tools.zip || { echo Downloading depot_tools failed; exit 1; }
 unzip -d depot_tools -o depot_tools.zip || { echo Unzipping depot_tools failed; exit 1; }
 cd depot_tools
@@ -23,12 +26,12 @@ echo "Running gn gen"
 gn gen out/Release || { echo Non-configured gn gen failed; exit 1; }
 
 echo "Applying patches"
-cp pdfiumviewer.cpp fpdfsdk/ || { echo Could not copy pdfiumviewer.cpp; exit 1; }
-cp pdfium.rc fpdfsdk/ || { echo Could not copy pdfium.rc; exit 1; }
-cp pdfium-args.gn out/Release/args.gn || { echo Could not copy args.gn; exit 1; }
+cp ../pdfiumviewer.cpp fpdfsdk/ || { echo Could not copy pdfiumviewer.cpp; exit 1; }
+cp ../pdfium.rc fpdfsdk/ || { echo Could not copy pdfium.rc; exit 1; }
+cp ../pdfium-args.gn out/Release/args.gn || { echo Could not copy args.gn; exit 1; }
 
 echo "Applying build.gn patch"
-cscs pdfium-build-gn-patch.cs || { echo Could modify BUILD.gn; exit 1; }
+../cscs ../pdfium-build-gn-patch.cs || { echo Could modify BUILD.gn; exit 1; }
 
 echo "Running gn gen again"
 gn gen out/Release || { echo Custom configured gn gen failed; exit 1; }
