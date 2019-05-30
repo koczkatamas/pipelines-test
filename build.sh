@@ -35,3 +35,6 @@ gn gen out/Release || { echo Custom configured gn gen failed; exit 1; }
 
 echo "Running ninja"
 ninja -C out/Release pdfium_dll || { echo Ninja build failed; exit 1; }
+
+echo "Move artifacts"
+cp out/Release/pdfium.dll $BUILD_ARTIFACTSTAGINGDIRECTORY/
