@@ -24,4 +24,6 @@ steps:
     set DEPOT_TOOLS_WIN_TOOLCHAIN=0
     gclient config --unmanaged https://pdfium.googlesource.com/pdfium.git
     gclient sync
+    cd pdfium
+    download_from_google_storage -b chromium-browser-clang/rc -d build/toolchain/win/rc/win
   displayName: 'Download PDFium'
