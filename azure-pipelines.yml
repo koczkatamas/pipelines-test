@@ -10,11 +10,9 @@ pool:
   vmImage: 'vs2017-win2016'
 
 steps:
-- script: dir
-  displayName: 'Run a one-line script'
-
-- script: |
-    dir
-    where python
-    python2 -c "print 'running from python!'"
-  displayName: 'Run a multi-line script'
+- displayName: 'Download depot_tools'
+  script: |
+    curl --remote-name https://storage.googleapis.com/chrome-infra/depot_tools.zip
+    unzip -d depot_tools -o depot_tools.zip
+    cd depot_tools
+    git checkout .
