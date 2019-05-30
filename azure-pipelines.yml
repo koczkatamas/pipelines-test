@@ -21,7 +21,7 @@ steps:
 - script: set
   displayName: 'Show environment variables'
 - script: |
-    export DEPOT_TOOLS_WIN_TOOLCHAIN=0
+    set DEPOT_TOOLS_WIN_TOOLCHAIN=0
     gclient config --unmanaged https://pdfium.googlesource.com/pdfium.git
     gclient sync
   displayName: 'Download PDFium'
