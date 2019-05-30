@@ -11,16 +11,15 @@ pool:
 
 steps:
 - script: |
-    rem curl --remote-name https://storage.googleapis.com/chrome-infra/depot_tools.zip
-    rem unzip -d depot_tools -o depot_tools.zip
-    rem cd depot_tools
-    rem git checkout .
-    rem cd ..
-    ECHO ##vso[task.prependpath]%AGENT_BUILDDIRECTORY%\depot_tools
+    curl --remote-name https://storage.googleapis.com/chrome-infra/depot_tools.zip
+    unzip -d depot_tools -o depot_tools.zip
+    cd depot_tools
+    git checkout .
+    cd ..
+    ECHO ##vso[task.prependpath]%CD%\depot_tools
   displayName: 'Download depot_tools'
-- script: |
-    echo %PATH%
-  displayName: 'Show path'
+- script: set
+  displayName: 'Show environment variables'
 - script: |
     export DEPOT_TOOLS_WIN_TOOLCHAIN=0
     gclient config --unmanaged https://pdfium.googlesource.com/pdfium.git
