@@ -23,12 +23,12 @@ echo "Running gn gen"
 gn gen out/Release || { echo Non-configured gn gen failed; exit 1; }
 
 echo "Applying patches"
-cp pdfiumviewer.cpp fpdfsdk/ || { echo Could not copy pdfiumviewer.cpp; exit 1; }
-cp pdfium.rc fpdfsdk/ || { echo Could not copy pdfium.rc; exit 1; }
-cp pdfium-args.gn out/Release/args.gn || { echo Could not copy args.gn; exit 1; }
+cp ../pdfiumviewer.cpp fpdfsdk/ || { echo Could not copy pdfiumviewer.cpp; exit 1; }
+cp ../pdfium.rc fpdfsdk/ || { echo Could not copy pdfium.rc; exit 1; }
+cp ../pdfium-args.gn out/Release/args.gn || { echo Could not copy args.gn; exit 1; }
 
 echo "Applying build.gn patch"
-cscs pdfium-build-gn-patch.cs || { echo Could modify BUILD.gn; exit 1; }
+../cscs ../pdfium-build-gn-patch.cs || { echo Could modify BUILD.gn; exit 1; }
 
 echo "Running gn gen again"
 gn gen out/Release || { echo Custom configured gn gen failed; exit 1; }
