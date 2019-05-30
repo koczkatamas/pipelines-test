@@ -1,7 +1,7 @@
 set -x
 
 echo "Downloading depot_tools"
-export PATH=$(pwd)/depot_tools
+export PATH=$PATH:$(pwd)/depot_tools
 curl --remote-name https://storage.googleapis.com/chrome-infra/depot_tools.zip || { echo Downloading depot_tools failed; exit 1; }
 unzip -d depot_tools -o depot_tools.zip || { echo Unzipping depot_tools failed; exit 1; }
 cd depot_tools
