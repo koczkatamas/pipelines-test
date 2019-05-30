@@ -18,7 +18,6 @@ steps:
     cd ..
     ECHO ##vso[task.prependpath]%CD%\depot_tools
   displayName: 'Download depot_tools'
-  failOnStderr: true
 - script: set
   displayName: 'Show environment variables'
 - script: |
