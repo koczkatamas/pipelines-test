@@ -1,7 +1,10 @@
 set -x
 
-echo "Downloading depot_tools"
+echo "Configure environment"
 export PATH=/c/hostedtoolcache/windows/Python/2.7.16/x86:$PATH:$(pwd)/depot_tools
+python -m pip install pywin32
+
+echo "Downloading depot_tools"
 curl --remote-name https://storage.googleapis.com/chrome-infra/depot_tools.zip || { echo Downloading depot_tools failed; exit 1; }
 unzip -d depot_tools -o depot_tools.zip || { echo Unzipping depot_tools failed; exit 1; }
 cd depot_tools
