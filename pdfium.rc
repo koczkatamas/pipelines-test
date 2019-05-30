@@ -1,0 +1,37 @@
+/**
+ * @file pdfium.rc
+ * @copyright Copyright (C) 2012-2015 Tresorit Kft. - All rights reserved
+ */
+
+#include <windows.h>
+
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION 2,3,1,1
+PRODUCTVERSION 2,3,1,1
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+FILEFLAGS 0
+FILEOS VOS_NT_WINDOWS32
+FILETYPE VFT_DLL
+FILESUBTYPE 0
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004B0"
+        BEGIN
+            VALUE "CompanyName", "Tresorit Kft."
+            VALUE "FileDescription", "PDFium Library for Tresorit PDF Viewer"
+            VALUE "FileVersion", "2.3.1.1"
+            VALUE "InternalName", "pdfium"
+            VALUE "LegalCopyright", "Copyright (C) 2016, Tresorit Kft."
+            VALUE "OriginalFilename", "pdfium.dll"
+            VALUE "ProductName", "Tresorit PDF Viewer"
+            VALUE "ProductVersion", "2.3.1.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0, 0x4B0
+    END
+END

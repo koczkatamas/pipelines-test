@@ -1,0 +1,19 @@
+# Build arguments go here. Examples:
+#   is_component_build = true
+#   is_debug = false
+# See "gn args <out_dir> --list" for available build arguments.
+
+use_goma = false # Googlers only.
+is_debug = false # Enable debugging features.
+
+pdf_use_skia = false  # Set true to enable experimental skia backend.
+pdf_use_skia_paths = false # Set true to enable experimental skia backend (paths only).
+
+pdf_enable_xfa = false # Set false to remove XFA support (implies JS support).
+pdf_enable_v8 = false  # Set false to remove Javascript support.
+pdf_is_standalone = false # Set for a non-embedded build.
+is_component_build = false # Disable component build (must be false)
+
+target_cpu = "x86"
+
+clang_use_chrome_plugins = false # Currently must be false.
