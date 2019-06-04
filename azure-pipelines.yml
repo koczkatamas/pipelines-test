@@ -13,7 +13,7 @@ steps:
 - bash: ./build.sh
   enabled: false
  
-- bash: echo hello > $(Build.ArtifactStagingDirectory)/test.txt
+- script: type hello > $(Build.ArtifactStagingDirectory)\test.txt
 
 - task: PublishBuildArtifacts@1
   enabled: false
