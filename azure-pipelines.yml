@@ -11,8 +11,20 @@ pool:
 
 steps:
 - bash: ./build.sh
+  enabled: false
+ 
+- bash: echo hello > $(Build.ArtifactStagingDirectory)/test.txt
 
 - task: PublishBuildArtifacts@1
+  enabled: false
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: drop
+
+- task: GitHubRelease@0
+  inputs:
+    gitHubConnection: koczkatamas
+    repositoryName: '$(Build.Repository.Name)' 
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'auto' # Required when action == Create# Options: auto, manual
