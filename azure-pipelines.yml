@@ -30,7 +30,7 @@ steps:
       gitHubConnection: github-kt
       repositoryName: 'koczkatamas/pipelines-test' 
       action: 'create'
-      target: '1.0.0.1'
+      target: '$(Build.SourceVersion)'
       tagSource: manual
       tag: '1.0.0.1'
       releaseNotesSource: input
