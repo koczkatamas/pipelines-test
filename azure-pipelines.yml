@@ -27,6 +27,8 @@ steps:
     gitHubConnection: github-kt
     repositoryName: '$(Build.Repository.Name)' 
     action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'manual' # Required when action == Create# Options: auto, manual
-    tag: '$(Build.SourceVersion)'
+    target: '1.0.0.0'
+    tagSource: manual
+    tag: '1.0.0.0'
+    releaseNotesSource: input
+    releaseNotes: 'Release notes text'
