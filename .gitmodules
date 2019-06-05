@@ -1,0 +1,4 @@
+[submodule "pdfium"]
+	path = pdfium
+	url = https://pdfium.googlesource.com/pdfium
+	branch = chromium/3815
