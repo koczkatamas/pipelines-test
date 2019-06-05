@@ -13,6 +13,9 @@ variables:
   system.debug: true
 
 steps:
+  - checkout: self
+    submodules: true
+
   - bash: ./build.sh
     enabled: false
    
@@ -32,6 +35,6 @@ steps:
       action: 'create'
       target: '$(Build.SourceVersion)'
       tagSource: manual
-      tag: '1.0.0.1'
+      tag: '1.0.0.2'
       releaseNotesSource: input
       releaseNotes: 'Release notes text'
