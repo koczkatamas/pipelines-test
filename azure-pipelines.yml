@@ -17,7 +17,7 @@ steps:
     submodules: true
 
   - bash: ./build.sh
-    enabled: false
+    enabled: true
    
   - script: echo hello > $(Build.ArtifactStagingDirectory)\test.txt
   - script: echo Version=$(Build.SourceVersion)
