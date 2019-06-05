@@ -11,12 +11,12 @@ cd depot_tools
 git checkout . # ninja.exe stucks somehow and update_depot_tools fails otherwise
 cd ..
 
-echo "Downloading PDFium"
-export DEPOT_TOOLS_WIN_TOOLCHAIN=0
-gclient config --verbose --unmanaged https://pdfium.googlesource.com/pdfium.git || true
-gclient sync --verbose || true # WARNING it does not find python, it should be run from cmd
+#echo "Downloading PDFium"
+#export DEPOT_TOOLS_WIN_TOOLCHAIN=0
+#gclient config --verbose --unmanaged https://pdfium.googlesource.com/pdfium.git || true
+#gclient sync --verbose || true # WARNING it does not find python, it should be run from cmd
 
-dir
+#dir
 
 echo "Downloading rc.exe"
 cd pdfium
